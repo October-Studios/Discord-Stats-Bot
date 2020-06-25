@@ -53,11 +53,11 @@ client.on("ready", async () => {
 	storedBalances.forEach((b) => currency.set(b.user_id, b));
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({
-		status: "online",
-		game: {
-			name: "Under development",
+		activity: {
+			name: "you",
 			type: "WATCHING",
 		},
+		status: "online",
 	});
 });
 
