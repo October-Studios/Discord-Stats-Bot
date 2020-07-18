@@ -44,7 +44,7 @@ module.exports = {
 			)
 			.setTimestamp();
 
-		if (member.user.presence.activities)
+		if (member.user.presence.activities.length > 0)
 			embed.addField(
 				"Currently playing",
 				stripIndents`**> Name:** ${member.user.presence.activities[0].name}`
