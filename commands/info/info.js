@@ -13,11 +13,11 @@ module.exports = {
 				version +
 				"\nAuthor: " +
 				author +
-				"\nDescription" +
+				"\nDescription: " +
 				description +
-				"\n Patch notes for v" +
+				"\nPatch notes for v" +
 				version +
-				": reformatted command code and removed unused variables."
+				": reformatted command code and removed unused variables. Fixed formatting errors for this command."
 		);
 	},
 };
