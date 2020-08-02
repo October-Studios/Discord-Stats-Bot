@@ -2,7 +2,7 @@ const { version, author, description, name } = require("../../package.json");
 
 module.exports = {
 	name: "info",
-	aliases: "i",
+	aliases: ["i"],
 	category: "info",
 	description: "Provides information about me!",
 	run: async (client, message) => {
