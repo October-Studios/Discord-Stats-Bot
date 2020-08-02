@@ -5,8 +5,8 @@ module.exports = {
 	aliases: "i",
 	category: "info",
 	description: "Provides information about me!",
-	run: async (message) => {
-		message.channel.send(
+	run: async (client, message) => {
+		return message.channel.send(
 			"Bot name: " +
 				name +
 				"\nBot version: " +
