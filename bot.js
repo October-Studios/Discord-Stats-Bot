@@ -1,14 +1,10 @@
-const { Client, RichEmbed, Collection, MessageEmbed } = require("discord.js");
+const { Client, Collection } = require("discord.js");
 const { config } = require("dotenv");
 const fs = require("fs");
 const { Users, CurrencyShop } = require("./dbObjects");
 const { Op } = require("sequelize");
 const currency = new Collection();
 const { token } = require("./auth.json");
-const { version, author, description, name } = require("./package.json");
-var request = require("request");
-var cheerio = require("cheerio");
-const axios = require("axios");
 let cooldown = new Set();
 let cdSeconds = 60;
 
@@ -197,20 +193,6 @@ client.on("message", async (message) => {
 				)
 				.join("\n"),
 			{ code: true }
-		);
-	} else if (command === "info") {
-		message.channel.send(
-			"Bot name: " +
-				name +
-				"\nBot version: " +
-				version +
-				"\nAuthor: " +
-				author +
-				"\nDescription: " +
-				description +
-				"\nPatch notes for v" +
-				version +
-				": added the shop! Use //help shop to view the shop commands."
 		);
 	}
 });
