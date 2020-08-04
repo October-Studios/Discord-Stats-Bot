@@ -7,6 +7,7 @@ let realms_server = "https://pc.realms.minecraft.net";
 let uuid = "9f5b28502c67451b9ab20329791bbc60";
 let user_id = "Orionium";
 let version = "1.16.1";
+var access_token;
 
 module.exports = {
 	name: "realms",
@@ -32,24 +33,24 @@ module.exports = {
 							agent: '{"name": "Minecraft","version": 1}',
 						})
 						.then(function (response) {
-							let access_token = response.data.accessToken;
-							axios
-								.get(realms_server + "/activities/liveplayerlist", {
-									headers: {
-										Cookie:
-											"sid_token=" +
-											access_token +
-											":" +
-											uuid +
-											";user=" +
-											user_id +
-											";version=" +
-											version,
-									},
-								})
-								.then((response) => {
-									console.log(response);
-								});
+							access_token = response.data.accessToken;
+						});
+					axios
+						.get(realms_server + "/activities/liveplayerlist", {
+							headers: {
+								Cookie:
+									"sid_token=" +
+									access_token +
+									":" +
+									uuid +
+									";user=" +
+									user_id +
+									";version=" +
+									version,
+							},
+						})
+						.then((response) => {
+							console.log(response);
 						});
 					break;
 				default:
