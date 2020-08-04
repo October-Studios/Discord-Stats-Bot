@@ -1,7 +1,5 @@
 const { Collection } = require("discord.js");
 
-const currency = new Collection();
-
 module.exports = {
 	name: "leaderboard",
 	category: "shop",
