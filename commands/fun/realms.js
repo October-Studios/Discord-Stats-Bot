@@ -25,10 +25,7 @@ module.exports = {
 							username: user,
 							password: pass,
 							clientToken: client_token,
-							agent: {
-								name: "Minecraft",
-								version: 1,
-							},
+							agent: '{"name": "Minecraft","version": 1}',
 						})
 						.then(function (response) {
 							let access_token = response;
