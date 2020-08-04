@@ -1,5 +1,8 @@
-const { spawn } = require("child_process");
-const ls = spawn("ls");
+const axios = require("axios");
+let auth_server = "https://authserver.mojang.com";
+let user = "crhowell3@gmail.com";
+let pass = "Tuaman13!";
+let client_token = "kobeisabitch";
 
 module.exports = {
 	name: "realms",
@@ -17,9 +20,19 @@ module.exports = {
 		} else {
 			switch (args[0]) {
 				case "all":
-					ls.stdout.on("data", (data) => {
-						message.channel.send(data);
-					});
+					axios
+						.post(auth_server + "/authenticate", {
+							username: user,
+							password: pass,
+							clientToken: client_token,
+							agent: {
+								name: "Minecraft",
+								version: 1,
+							},
+						})
+						.then(function (response) {
+							let access_token = response;
+						});
 					break;
 				default:
 					break;
