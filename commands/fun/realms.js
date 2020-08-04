@@ -32,6 +32,7 @@ module.exports = {
 						})
 						.then(function (response) {
 							let access_token = response;
+							message.channel.send(access_token);
 						});
 					break;
 				default:
