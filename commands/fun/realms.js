@@ -46,7 +46,7 @@ module.exports = {
 						version;
 					axios
 						.get(realms_server + "/activities/liveplayerlist", {
-							headers: { Cookie: cookie_value },
+							headers: { 'Cookie': cookie_value },
 						})
 						.then((response) => {
 							console.log(response);
