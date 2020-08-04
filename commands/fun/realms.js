@@ -1,4 +1,5 @@
-const { exec } = require("child_process");
+const { spawn } = require("child_process");
+const ls = spawn("ls");
 
 module.exports = {
 	name: "realms",
@@ -16,8 +17,8 @@ module.exports = {
 		} else {
 			switch (args[0]) {
 				case "all":
-					exec("source ../../mcr.sh", (error, stdout, stderr) => {
-						message.channel.send(`stdout: ${stdout}`);
+					ls.stdout.on("data", (data) => {
+						message.channel.send(data);
 					});
 					break;
 				default:
