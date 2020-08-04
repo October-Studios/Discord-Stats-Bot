@@ -46,11 +46,26 @@ module.exports = {
 						version;
 					axios
 						.get(realms_server + "/activities/liveplayerlist", {
-							headers: { 'Cookie': cookie_value },
+							headers: { Cookie: cookie_value },
 						})
 						.then((response) => {
 							console.log(response);
 						});
+					break;
+				case "worlds":
+					axios
+						.post(auth_server + "/authenticate", {
+							username: user,
+							password: pass,
+							clientToken: client_token,
+							agent: '{"name": "Minecraft","version": 1}',
+						})
+						.then(function (response) {
+							access_token = response.data.accessToken;
+						});
+					axios.get(realms_server + "/worlds").then((response) => {
+						console.log(response);
+					});
 					break;
 				default:
 					break;

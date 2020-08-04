@@ -173,14 +173,7 @@ client.on("message", async (message) => {
 			return message.channel.send("That item is not sellable.");
 		}
 		message.channel.send(`You've sold ${item.name} for ${item.sellPrice}.`);
-	} //else if (command === "shop") {
-	//const items = await CurrencyShop.findAll();
-	//return message.channel.send(
-	//items.map((item) => `${item.name}: ${item.cost}`).join("\n"),
-	//{ code: true }
-	//);
-	/*}*/
-	else if (command === "leaderboard") {
+	} /*else if (command === "leaderboard") {
 		return message.channel.send(
 			currency
 				.sort((a, b) => b.balance - a.balance)
@@ -195,7 +188,7 @@ client.on("message", async (message) => {
 				.join("\n"),
 			{ code: true }
 		);
-	}
+	}*/
 });
 
 client.login(token);
