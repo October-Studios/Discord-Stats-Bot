@@ -35,19 +35,18 @@ module.exports = {
 						.then(function (response) {
 							access_token = response.data.accessToken;
 						});
+					let cookie_value =
+						"sid_token=" +
+						access_token +
+						":" +
+						uuid +
+						";user=" +
+						user_id +
+						";version=" +
+						version;
 					axios
 						.get(realms_server + "/activities/liveplayerlist", {
-							headers: {
-								Cookie:
-									"sid_token=" +
-									access_token +
-									":" +
-									uuid +
-									";user=" +
-									user_id +
-									";version=" +
-									version,
-							},
+							headers: { Authorization: "Bearer " + cookie_value },
 						})
 						.then((response) => {
 							console.log(response);
