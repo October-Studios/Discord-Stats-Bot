@@ -3,6 +3,10 @@ let auth_server = "https://authserver.mojang.com";
 let user = "crhowell3@gmail.com";
 let pass = "Tuaman13!";
 let client_token = "kobeisabitch";
+let realms_server = "https://pc.realms.minecraft.net";
+let uuid = "9f5b28502c67451b9ab20329791bbc60";
+let user_id = "Orionium";
+let version = "1.16.1";
 
 module.exports = {
 	name: "realms",
@@ -28,8 +32,24 @@ module.exports = {
 							agent: '{"name": "Minecraft","version": 1}',
 						})
 						.then(function (response) {
-							let access_token = response;
-							message.channel.send(access_token);
+							let access_token = response.data.accessToken;
+							axios
+								.get(realms_server + "/activities/liveplayerlist", {
+									headers: {
+										Cookie:
+											"sid_token=" +
+											access_token +
+											":" +
+											uuid +
+											";user=" +
+											user_id +
+											";version=" +
+											version,
+									},
+								})
+								.then((response) => {
+									console.log(response);
+								});
 						});
 					break;
 				default:
