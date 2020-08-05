@@ -47,7 +47,6 @@ config({
 client.on("ready", async () => {
 	const storedBalances = await Users.findAll();
 	storedBalances.forEach((b) => currency.set(b.user_id, b));
-	export { currency };
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({
 		activity: {
