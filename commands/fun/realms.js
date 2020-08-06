@@ -14,9 +14,6 @@ module.exports = {
 		} else {
 			switch (args[0]) {
 				case "info":
-					shell.exec("bash ~/Discord-Stats-Bot/realms-request/login.sh", {
-						silent: true,
-					}).stdout;
 					var req = shell.exec(
 						"bash ~/Discord-Stats-Bot/realms-request/get-world.sh",
 						{ silent: true }

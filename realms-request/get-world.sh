@@ -1,4 +1,22 @@
 #!/bin/bash
+
+user="crhowell3@gmail.com"
+password="Tuaman13!"
+
+auth_server=https://authserver.mojang.com
+client_token=github.com/air/minecraft-tools
+
+response=$(http --check-status --ignore-stdin POST ${auth_server}/authenticate username=${user} password=${password} clientToken=${client_token} agent:='{"name": "Minecraft", "version": 1}')
+ if [ $? -ne 0 ];then
+  echo "Error authenticating, response: ${response}"
+  return 1
+fi
+
+# parse details from the JSON response
+access_token=$(echo ${response} | jq -r .accessToken)
+name=$(echo ${response} | jq -r .selectedProfile.name)
+id=$(echo ${response} | jq -r .selectedProfile.id)
+
 realms_server=https://pc.realms.minecraft.net
 version=1.16.2
 
