@@ -26,9 +26,9 @@ cookie_string="Cookie:sid=token:${access_token}:${id};user=${name};version=${ver
 response=$(http --check-status --ignore-stdin --verify=no GET ${realms_server}/worlds "${cookie_string}")
 
 owner=$(echo ${response} | jq -r .servers[0].owner)
-daysLeft=$(echo ${response} | jq -r servers[0].daysLeft)
-serverName=$(echo ${response} | jq -r servers[0].name)
-state=$(echo ${response} | jq -r servers[0].state)
-online=$(echo ${response} | jq -r servers[0].players) 
+daysLeft=$(echo ${response} | jq -r .servers[0].daysLeft)
+serverName=$(echo ${response} | jq -r .servers[0].name)
+state=$(echo ${response} | jq -r .servers[0].state)
+online=$(echo ${response} | jq -r .servers[0].players) 
 
-echo -e "${owner}\n${daysLeft}\n${serverName}\n${state}\n${online}"
+echo "${owner} ${daysLeft} ${serverName} ${state} ${online}"
