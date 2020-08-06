@@ -23,6 +23,7 @@
 		"realmviewer": "^1.2.0",
 		"request": "^2.88.2",
 		"sequelize": "^5.21.12",
+		"shelljs": "^0.8.4",
 		"sqlite3": "^4.2.0",
 		"winston": "^3.2.1"
 	}
