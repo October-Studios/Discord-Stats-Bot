@@ -52,7 +52,7 @@ module.exports = {
 							console.log(response);
 						});
 					break;
-				case "worlds":
+				case "world":
 					axios
 						.post(auth_server + "/authenticate", {
 							username: user,
@@ -63,7 +63,7 @@ module.exports = {
 						.then(function (response) {
 							access_token = response.data.accessToken;
 						});
-					axios.get(realms_server + "/worlds").then((response) => {
+					axios.get(realms_server + "/worlds/1").then((response) => {
 						console.log(response);
 					});
 					break;
