@@ -23,7 +23,7 @@ module.exports = {
 					const embed = new MessageEmbed()
 						.setColor("#14BEBC")
 						.setTitle("Minecraft Realms Info")
-						.addField("Server Name: ", `${spl[2]}`, true)
+						.addField("Server Name: ", `${spl[2]} ${spl[3]}`, true)
 						.addField("Owner: ", `${spl[0]}`, true);
 					message.channel.send(embed);
 					break;
