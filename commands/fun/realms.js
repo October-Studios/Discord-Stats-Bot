@@ -1,4 +1,5 @@
 const shell = require("shelljs");
+const { MessageEmbed, Message } = require("discord.js");
 
 module.exports = {
 	name: "realms",
@@ -18,7 +19,13 @@ module.exports = {
 						"bash ~/Discord-Stats-Bot/realms-request/get-world.sh",
 						{ silent: true }
 					).stdout;
-					message.channel.send(req);
+					var spl = req.split(" ");
+					const embed = new MessageEmbed()
+						.setColor("#14BEBC")
+						.setTitle("Minecraft Realms Info")
+						.addField("Server Name: ", stripIndents`${spl[2]}`, true)
+						.addField("Owner: ", stripIndents`${spl[0]}`, true);
+					message.channel.send(embed);
 					break;
 				default:
 					break;
