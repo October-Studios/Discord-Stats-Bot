@@ -1,5 +1,5 @@
 const shell = require("shelljs");
-const { MessageEmbed, Message } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
 	name: "realms",
@@ -23,8 +23,8 @@ module.exports = {
 					const embed = new MessageEmbed()
 						.setColor("#14BEBC")
 						.setTitle("Minecraft Realms Info")
-						.addField("Server Name: ", stripIndents`${spl[2]}`, true)
-						.addField("Owner: ", stripIndents`${spl[0]}`, true);
+						.addField("Server Name: ", `${spl[2]}`, true)
+						.addField("Owner: ", `${spl[0]}`, true);
 					message.channel.send(embed);
 					break;
 				default:
