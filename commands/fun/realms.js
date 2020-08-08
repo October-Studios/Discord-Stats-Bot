@@ -20,11 +20,22 @@ module.exports = {
 						{ silent: true }
 					).stdout;
 					var spl = req.split(" ");
+					var online = "";
+					if (spl[4] === "OPEN") {
+						online = "ONLINE";
+					} else {
+						online = "OFFLINE";
+					}
 					const embed = new MessageEmbed()
 						.setColor("#14BEBC")
 						.setTitle("Minecraft Realms Info")
-						.addField("Server Name: ", `${spl[2]} ${spl[3]}`, true)
-						.addField("Owner: ", `${spl[0]}`, true);
+						.addField("Server Name: ", `${spl[2]} ${spl[3]}`)
+						.addField("Owner: ", `${spl[0]}`)
+						.addField("Sub Days Remaining: ", `${spl[1]}`)
+						.addField("Status: ", `${online}`);
+					if (online === "ONLINE") {
+						embed.addField("Players online: ", `${spl[5]}`);
+					}
 					message.channel.send(embed);
 					break;
 				default:
