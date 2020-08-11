@@ -19,6 +19,7 @@ module.exports = {
 						"bash ~/Discord-Stats-Bot/realms-request/get-world.sh",
 						{ silent: true }
 					).stdout;
+          console.log(req);
 					var spl = req.split(" ");
 					var online = "";
 					if (spl[4] === "OPEN") {

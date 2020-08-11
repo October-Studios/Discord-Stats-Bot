@@ -29,6 +29,6 @@ owner=$(echo ${response} | jq -r .servers[0].owner)
 daysLeft=$(echo ${response} | jq -r .servers[0].daysLeft)
 serverName=$(echo ${response} | jq -r .servers[0].name)
 state=$(echo ${response} | jq -r .servers[0].state)
-online=$(echo ${response} | jq -r .servers[0].players) 
+online=$(echo ${response} | jq -r .servers[0].players[0]) 
 
 echo "${owner} ${daysLeft} ${serverName} ${state} ${online}"
