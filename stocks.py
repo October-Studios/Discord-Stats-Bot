@@ -2,7 +2,7 @@ import robin_stocks as r
 import os
 
 
-password = os.environ.get("i982BQ7NQkqs7Sk")
+password = os.environ.get("ROBINHOOD")
 
 
 def main():

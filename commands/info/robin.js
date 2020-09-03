@@ -13,9 +13,9 @@ module.exports = {
 		}
 
 		function callbackFunc(response) {
-			message.channel.send(response);
+			return message.channel.send(response);
 		}
 
-		postData(/*input parameter*/);
+		postData("");
 	},
 };
