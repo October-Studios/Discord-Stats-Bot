@@ -1,5 +1,7 @@
 const { PythonShell } = require("python-shell");
-var pyshell;
+var options = {
+	scriptPath: '/home/ubuntu/Discord-Stats-Bot'
+};
 
 module.exports = {
 	name: "robin",
@@ -12,13 +14,16 @@ module.exports = {
 		if (!args[1]) {
 			return message.channel.send("Please specify an entity!");
 		}
-		if (args[0].toLowerCase === "value" && args[1].toLowerCase() === "cam") {
-			pyshell = new PythonShell("/home/ubuntu/Discord-Stats-Bot/stocks.py");
-			pyshell.send("crhowell3@gmail.com HOWELL_ROBIN");
+		if (args[0].toLowerCase() === "value" && args[1].toLowerCase() === "cam") {
+			var pyshell = new PythonShell("stocks.py", options, { mode: 'text' });
+			pyshell.send("crhowell3@gmail.com HOWELL_ROBIN")
+			pyshell.stdout.on('data', function(data) {
+				message.channel.send(data)
+			});
+			pyshell.end(function(err) {
+				if (err) throw err;
+				console.log("End Script")
+			});
 		}
-		await pyshell.stdout(async function (err, results) {
-			if (err) throw err;
-			return message.channel.send(results);
-		});
 	},
 };

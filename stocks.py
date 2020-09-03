@@ -2,8 +2,13 @@ import robin_stocks as r
 import os
 import sys
 
-username = sys.stdin[0]
-password = os.environ.get(sys.stdin[1])
+temp_arr = []
+for line in sys.stdin:
+  temp_arr = line.split()
+
+
+username = temp_arr[0]
+password = os.environ.get(temp_arr[1])
 
 
 def main():
