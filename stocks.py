@@ -17,6 +17,8 @@ def main():
     for key, value in my_stocks.items():
         print(key, value)
         sys.stdout.flush()
+    r.logout()
+    os.remove("/home/ubuntu/.tokens/robinhood.pickle")
 
 
 if __name__ == "__main__":
