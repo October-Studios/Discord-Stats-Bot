@@ -1,8 +1,8 @@
-const { MessageEmbed } = require('discord.js');
-const { stripIndents } = require('common-tags');
+const { MessageEmbed } = require("discord.js");
+const { stripIndents } = require("common-tags");
 
-const Client = require('fortnite');
-const ft = new Client(process.env.FORTNITE); 
+const Client = require("fortnite");
+const ft = new Client(process.env.FORTNITE);
 
 module.exports = {
 	name: "fortnite",
@@ -12,7 +12,7 @@ module.exports = {
 	usage: "<username | store>",
 	run: async (client, message, args) => {
 		const platforms = ["pc", "xbl", "psn"];
-		
+
 		if (args[0].toLowerCase() === "store") {
 			const store = await ft.store();
 
@@ -25,19 +25,23 @@ module.exports = {
 				return b.vbucks - a.vbucks;
 			});
 
-			store.forEach(el => {
-				embed.addField(el.name, stripIndents`**- Rarity:** ${el.rarity}
+			store.forEach((el) => {
+				embed.addField(
+					el.name,
+					stripIndents`**- Rarity:** ${el.rarity}
 				**- Price:** ${el.vbucks} V-Bucks
-				**- Image:** [Press Me](${el.image})`, true)
+				**- Image:** [Press Me](${el.image})`,
+					true
+				);
 			});
-			
+
 			message.channel.send(embed);
 		} else {
 			const lastWord = args[args.length - 1].toLowerCase();
 
 			let platform, username;
 
-			if(platforms.includes(lastWord)){
+			if (platforms.includes(lastWord)) {
 				username = args.slice(0, args.length - 1).join(" ");
 				platform = lastWord;
 			} else {
@@ -48,8 +52,9 @@ module.exports = {
 			const search = await ft.user(username, platform);
 
 			if (!search.username) {
-				return message.channel.send("Could not find that user!")
-					.then(m => m.delete(5000));
+				return message.channel
+					.send("Could not find that user!")
+					.then((m) => m.delete(5000));
 			}
 
 			const lifetime = search.stats.lifetime;
@@ -62,23 +67,39 @@ module.exports = {
 				.setTitle(`${search.username} (${search.platform})`)
 				.setFooter("Fortnite stats", message.author.displayAvatarURL)
 				.setTimestamp()
-				.addField("Solo: ", stripIndents`**- Wins:** ${solo.wins}
+				.addField(
+					"Solo: ",
+					stripIndents`**- Wins:** ${solo.wins}
 				**- KD:** ${solo.kd}
 				**- Kills:** ${solo.kills}
-				**- Kills per match:** ${solo.kills_per_match}`, true)
-				.addField("Duo: ", stripIndents`**- Wins:** ${duo.wins}
+				**- Kills per match:** ${solo.kills_per_match}`,
+					true
+				)
+				.addField(
+					"Duo: ",
+					stripIndents`**- Wins:** ${duo.wins}
 		    **- KD:** ${duo.kd}
 	 	    **- Kills:** ${duo.kills}
-	 	    **- Kills per match:** ${duo.kills_per_match}`, true)
-				.addField("Squad: ", stripIndents`**- Wins:** ${squad.wins}
+	 	    **- Kills per match:** ${duo.kills_per_match}`,
+					true
+				)
+				.addField(
+					"Squad: ",
+					stripIndents`**- Wins:** ${squad.wins}
 	      **- KD:** ${squad.kd}
 	      **- Kills:** ${squad.kills}
-	      **- Kills per match:** ${squad.kills_per_match}`, true)
-				.addField("Lifetime: ", stripIndents`**- Wins:** ${lifetime.wins}
+	      **- Kills per match:** ${squad.kills_per_match}`,
+					true
+				)
+				.addField(
+					"Lifetime: ",
+					stripIndents`**- Wins:** ${lifetime.wins}
 				**- KD:** ${lifetime.kd}
-				**- Kills:** ${lifetime.kills}`, false);
+				**- Kills:** ${lifetime.kills}`,
+					false
+				);
 
 			message.channel.send(embed);
 		}
-	}
-}
+	},
+};
