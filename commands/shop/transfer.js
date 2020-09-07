@@ -6,10 +6,10 @@ module.exports = {
 	category: "shop",
 	description: "Transfer currency between accounts",
 	usage: "<receiver> <amount>",
-	run: (client, message) => {
+	run: (client, message, args) => {
 		const currentAmount = currency.getBalance(message.author.id);
 		const transferAmount =
-			commandArgs.split(/ +/g) / find((arg) => !/<@!?\d+>/g.test(arg));
+			args.split(/ +/g) / find((arg) => !/<@!?\d+>/g.test(arg));
 		const transferTarget = message.mentions.users.first();
 
 		if (!transferAmount || isNaN(transferAmount))
