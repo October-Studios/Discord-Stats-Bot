@@ -1,4 +1,4 @@
-const { Users } = require("./dbObjects");
+const { Users } = require("../../dbObjects");
 
 module.exports = {
 	name: "inventory",
