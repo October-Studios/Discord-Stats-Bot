@@ -1,12 +1,13 @@
 const { Users, CurrencyShop } = require("../../dbObjects");
 const currency = require("../../bot.js");
+const { Op } = require("sequelize");
 
 module.exports = {
 	name: "buy",
 	category: "shop",
 	description: "Purchase an item from the shop",
 	usage: "<item>",
-	run: async (client, message) => {
+	run: async (client, message, args) => {
 		const item = await CurrencyShop.findOne({
 			where: { name: { [Op.like]: args[0] } },
 		});
