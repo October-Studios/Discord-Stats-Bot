@@ -1,8 +1,7 @@
 const { Client, Collection } = require("discord.js");
 const { config } = require("dotenv");
 const fs = require("fs");
-const { Users, CurrencyShop } = require("./dbObjects");
-const { Op } = require("sequelize");
+const { Users } = require("./dbObjects");
 const currency = new Collection();
 const { token } = require("./auth.json");
 let cooldown = new Set();
