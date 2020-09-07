@@ -8,6 +8,8 @@ const { token } = require("./auth.json");
 let cooldown = new Set();
 let cdSeconds = 60;
 
+export { currency };
+
 Reflect.defineProperty(currency, "add", {
 	value: async function add(id, amount) {
 		const user = currency.get(id);

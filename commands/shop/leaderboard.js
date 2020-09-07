@@ -1,3 +1,5 @@
+import { currency } from "../../bot.js";
+
 module.exports = {
 	name: "leaderboard",
 	category: "shop",
