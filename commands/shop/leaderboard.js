@@ -1,4 +1,4 @@
-import { currency } from "../../bot.js";
+const currency = require('../../bot.js');
 
 module.exports = {
 	name: "leaderboard",
