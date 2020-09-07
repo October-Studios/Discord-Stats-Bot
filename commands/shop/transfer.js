@@ -8,9 +8,16 @@ module.exports = {
 	usage: "<receiver> <amount>",
 	run: (client, message, args) => {
 		const currentAmount = currency.getBalance(message.author.id);
-		const transferAmount =
-			args.split(/ +/g) / find((arg) => !/<@!?\d+>/g.test(arg));
+		const transferAmount = args[1];
 		const transferTarget = message.mentions.users.first();
+
+    if (!args.length) {
+			return message.channel.send("You did not provide an argument.");
+    } else if (args.length > 2) {
+			return message.channel.send("Too many arguments!");
+    } else if (!parseInt(args[1])) {
+			return message.channel.send("Please provide an integer value to transfer!");
+    }
 
 		if (!transferAmount || isNaN(transferAmount))
 			return message.channel.send(
