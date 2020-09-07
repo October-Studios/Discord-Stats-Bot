@@ -82,12 +82,7 @@ client.on("message", async (message) => {
 		cmd.run(client, message, args);
 	}
 
-	if (command === "balance") {
-		const target = message.mentions.users.first() || message.author;
-		return message.channel.send(
-			`${target.tag} has` + " ₸" + `${currency.getBalance(target.id)}`
-		);
-	} else if (command === "inventory") {
+	if (command === "inventory") {
 		const target = message.mentions.users.first() || message.author;
 		const user = await Users.findOne({ where: { user_id: target.id } });
 		const items = await user.getItems();
