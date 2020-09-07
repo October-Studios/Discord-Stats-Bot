@@ -6,8 +6,8 @@ module.exports = {
 	category: "shop",
 	description: "Display a user's current inventory",
 	usage: "[user]",
-	run: (client, message) => {
-        const target = message.mentions.users.first() || message.author;
+	run: async (client, message) => {
+		const target = message.mentions.users.first() || message.author;
 		const user = await Users.findOne({ where: { user_id: target.id } });
 		const items = await user.getItems();
 
