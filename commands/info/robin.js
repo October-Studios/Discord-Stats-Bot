@@ -9,7 +9,7 @@ module.exports = {
 	name: "robin",
 	category: "info",
 	description: "Gives information about current stock market data",
-	usage: "<symbol>",
+	usage: "<symbol | 'list'>",
 	run: async (client, message, args) => {
 		if (!args[0]) {
 			return message.channel.send("Please specify a function!");
