@@ -8,6 +8,7 @@
 		"ascii-table": "0.0.9",
 		"axios": "^0.19.2",
 		"beautify": "0.0.8",
+		"bl": "^4.0.3",
 		"cheerio": "git+https://github.com/MatthewMueller/cheerio.git",
 		"common-tags": "^1.8.0",
 		"discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
