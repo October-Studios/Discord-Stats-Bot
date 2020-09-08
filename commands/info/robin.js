@@ -21,12 +21,18 @@ module.exports = {
 			if (args[1].toLowerCase() === "cam") {
 				username = "crhowell3@gmail.com";
 				password = "HOWELL_ROBIN";
-			} else if (args[1].toLowerCase() === "luke") {
-				username = "lukemcalister14@gmail.com";
-				password = "MCALISTER_ROBIN";
 			} else return message.channel.send("Invalid person!");
 			var pyshell = new PythonShell("stocks.py", options, { mode: "text" });
 			pyshell.send(username + " " + password);
+			pyshell.stdout.on("data", function (data) {
+				message.channel.send(data);
+			});
+			pyshell.end(function (err) {
+				if (err) throw err;
+			});
+		} else if (args[0].toLowerCase() === "stock") {
+			var pyshell = new PythonShell("stocks.py", options, { mode: "text" });
+			pyshell.send(username + " " + password + " " + args[1]);
 			pyshell.stdout.on("data", function (data) {
 				message.channel.send(data);
 			});
