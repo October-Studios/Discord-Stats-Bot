@@ -14,8 +14,8 @@ ticker = temp_arr[2]
 
 def main():
     login = r.login(username, password)
-    my_stocks = r.stocks.get_latest_price(ticker)
-    print(my_stocks[0])
+    my_stocks = r.stocks.get_latest_price(temp_arr[2])
+    print("$" + my_stocks[0])
     sys.stdout.flush()
     r.logout()
 
