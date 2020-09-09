@@ -1,4 +1,4 @@
-import { Client } from "espn-fantasy-football-api/node";
+const { Client } = require("espn-fantasy-football-api/node");
 const myClient = new Client({ leagueId: 65246886 });
 myClient.setCookies({
 	espnS2:
