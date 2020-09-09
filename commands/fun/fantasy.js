@@ -16,6 +16,6 @@ module.exports = {
 		});
 		let test = await myClient.getTeamsAtWeek({ seasonId, scoringPeriodId: 1 });
 		let n = test[0].name;
-		return message.channel.send(typeof n);
+		return message.channel.send(n);
 	},
 };
