@@ -14,7 +14,8 @@ module.exports = {
 			espnS2: process.env.ESPN_S2,
 			SWID: process.env.SWID,
 		});
-		let test = await myClient.getLeagueInfo({ seasonId }).responseMap.name
-		return message.channel.send(typeof test);
+		let test = await myClient.getTeamsAtWeek({ seasonId, scoringPeriodId: 1 });
+		let n = test[0].name;
+		return message.channel.send(typeof n);
 	},
 };
