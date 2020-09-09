@@ -19,6 +19,7 @@ module.exports = {
 		let teams = await myClient.getTeamsAtWeek({ seasonId, scoringPeriodId: 1 });
 		let abbr_array = ["TUL", "DICK", "UAH", "BURN"];
 		if (!args[0]) {
+			return message.channel.send("Provide an argument")
 		} else if (args[0] == "list") {
 			return message.channel.send(
 				`${teams[0].name} (${teams[0].abbreviation})\n${teams[1].name} (${teams[1].abbreviation})\n${teams[2].name} (${teams[2].abbreviation})\n${teams[3].name} (${teams[3].abbreviation})`
@@ -33,18 +34,21 @@ module.exports = {
 					"**East Division**",
 					stripIndents`${teams[0].name} 
 					**- Divisional Stats:** ${teams[0].divisionWins}-${teams[0].divisionLosses}-${teams[0].divisionTies}
-					\n
+					**- Rank:** ${teams[0].playoffSeed}
 					${teams[3].name}
-					**- Divisional Stats:** ${teams[3].divisionWins}-${teams[3].divisionLosses}-${teams[3].divisionTies}`,
+					**- Divisional Stats:** ${teams[3].divisionWins}-${teams[3].divisionLosses}-${teams[3].divisionTies}
+          **- Rank:** ${teams[3].playoffSeed}`,
 					true
 				)
+				.addField('\u200b', '\u200b', true)
 				.addField(
 					"**West Division**",
 					stripIndents`${teams[1].name} 
 					**- Divisional Stats:** ${teams[1].divisionWins}-${teams[1].divisionLosses}-${teams[1].divisionTies}
-					\n
+					**- Rank:** ${teams[1].playoffSeed}
 					${teams[2].name}
-					**- Divisional Stats:** ${teams[2].divisionWins}-${teams[2].divisionLosses}-${teams[2].divisionTies}`,
+					**- Divisional Stats:** ${teams[2].divisionWins}-${teams[2].divisionLosses}-${teams[2].divisionTies}
+					**- Rank:** ${teams[2].playoffSeed}`,
 					true
 				);
 			return message.channel.send(embed);
