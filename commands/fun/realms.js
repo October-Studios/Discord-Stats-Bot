@@ -19,7 +19,7 @@ module.exports = {
 						"bash ~/Discord-Stats-Bot/realms-request/get-world.sh",
 						{ silent: true }
 					).stdout;
-          console.log(req);
+					console.log(req);
 					var spl = req.split(" ");
 					var online = "";
 					if (spl[4] === "OPEN") {
@@ -37,6 +37,7 @@ module.exports = {
 					if (online === "ONLINE") {
 						embed.addField("Players online: ", `${spl[5]}`);
 					}
+					console.log(typeof spl[5]);
 					message.channel.send(embed);
 					break;
 				default:

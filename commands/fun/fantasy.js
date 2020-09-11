@@ -19,7 +19,7 @@ module.exports = {
 		let teams = await myClient.getTeamsAtWeek({ seasonId, scoringPeriodId: 1 });
 		let abbr_array = ["TUL", "DICK", "UAH", "BURN"];
 		if (!args[0]) {
-			return message.channel.send("Provide an argument")
+			return message.channel.send("Provide an argument");
 		} else if (args[0] == "list") {
 			return message.channel.send(
 				`${teams[0].name} (${teams[0].abbreviation})\n${teams[1].name} (${teams[1].abbreviation})\n${teams[2].name} (${teams[2].abbreviation})\n${teams[3].name} (${teams[3].abbreviation})`
@@ -40,7 +40,7 @@ module.exports = {
           **- Rank:** ${teams[3].playoffSeed}`,
 					true
 				)
-				.addField('\u200b', '\u200b', true)
+				.addField("\u200b", "\u200b", true)
 				.addField(
 					"**West Division**",
 					stripIndents`${teams[1].name} 
