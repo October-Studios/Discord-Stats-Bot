@@ -34,10 +34,6 @@ module.exports = {
 						.addField("Owner: ", `${spl[0]}`)
 						.addField("Sub Days Remaining: ", `${spl[1]}`)
 						.addField("Status: ", `${online}`);
-					if (online === "ONLINE") {
-						embed.addField("Players online: ", `${spl[5]}`);
-					}
-					console.log(typeof spl[5]);
 					message.channel.send(embed);
 					break;
 				default:
