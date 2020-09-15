@@ -51,12 +51,11 @@ client.on("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({
 		activity: {
-			name: "your mom",
-			type: "WATCHING",
+			name: "with my pp",
+			type: "PLAYING",
 		},
 		status: "online",
 	});
-  client.channels.cache.get('690763269543034905').send("I'm online! Type //help to get started :)")
 });
 
 client.on("message", async (message) => {
