@@ -1,4 +1,4 @@
-var alerts = require("wpoll.js");
+var alerts = require("./wpoll.js");
 
 module.exports = {
 	name: "alerts",
@@ -79,9 +79,9 @@ module.exports = {
 						);
 					}
 				}
+			} else {
+				message.channel.send("No active alerts for Lincoln County");
 			}
-		} else {
-			message.channel.send("No active alerts for Lincoln County");
 		}
 	},
 };
