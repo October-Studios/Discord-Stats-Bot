@@ -93,8 +93,8 @@ function getWarnings() {
 		});
 }
 
-function getOutlooks() {
-	axios
+async function getOutlooks() {
+	await axios
 		.get("https://www.spc.noaa.gov/products/outlook/day1otlk.html")
 		.then(function (response) {
 			const $ = cheerio.load(response.data);
@@ -109,7 +109,7 @@ function getOutlooks() {
 		.catch(function (error) {
 			console.log(error);
 		});
-	axios
+	await axios
 		.get("https://www.spc.noaa.gov/products/outlook/day2otlk.html")
 		.then(function (response) {
 			const $ = cheerio.load(response.data);
@@ -124,7 +124,7 @@ function getOutlooks() {
 		.catch(function (error) {
 			console.log(error);
 		});
-	axios
+	await axios
 		.get("https://www.spc.noaa.gov/products/outlook/day3otlk.html")
 		.then(function (response) {
 			const $ = cheerio.load(response.data);
