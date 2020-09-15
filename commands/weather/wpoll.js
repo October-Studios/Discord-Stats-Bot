@@ -147,17 +147,19 @@ module.exports = {
 	category: "weather",
 	description: "Activate polling for weather alerts",
 	run: async (client, message) => {
-		if (process.env.POLLING === "FALSE") {
-			setInterval(function () {
-				getWarnings();
-				getOutlooks();
-			}, 30 * 1000);
-			process.env.POLLING = "TRUE";
-			return message.channel
-				.send("Data scraping is active")
-				.catch(console.error);
-		} else {
-			return message.channel.send("Polling already active!");
+		if (message.channel.id === "690767163178483733") {
+			if (process.env.POLLING === "FALSE") {
+				setInterval(function () {
+					getWarnings();
+					getOutlooks();
+				}, 30 * 1000);
+				process.env.POLLING = "TRUE";
+				return message.channel
+					.send("Data scraping is active")
+					.catch(console.error);
+			} else {
+				return message.channel.send("Polling already active!");
+			}
 		}
 	},
 };
