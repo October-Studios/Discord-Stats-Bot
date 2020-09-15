@@ -3,7 +3,7 @@ var outlook_string_1,
 	outlook_string_3 = require("wpoll.js");
 
 module.exports = {
-	name: "wpoll",
+	name: "outlook",
 	aliases: ["wp"],
 	category: "weather",
 	description: "Activate polling for weather alerts",
