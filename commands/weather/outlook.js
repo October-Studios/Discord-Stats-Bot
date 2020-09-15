@@ -1,6 +1,6 @@
 var outlook_string_1,
 	outlook_string_2,
-	outlook_string_3 = require("wpoll.js");
+	outlook_string_3 = require("./wpoll.js");
 
 module.exports = {
 	name: "wpoll",

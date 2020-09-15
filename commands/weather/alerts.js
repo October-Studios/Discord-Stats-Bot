@@ -1,4 +1,4 @@
-var alerts = require("wpoll.js");
+var alerts = require("./wpoll.js");
 
 module.exports = {
 	name: "alerts",
