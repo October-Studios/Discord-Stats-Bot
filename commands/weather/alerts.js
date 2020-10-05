@@ -80,7 +80,7 @@ module.exports = {
 					}
 				}
 			} else {
-				message.channel.send("No active alerts for Lincoln County");
+				return message.channel.send("No active alerts for Lincoln County");
 			}
 		}
 	},
