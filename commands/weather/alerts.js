@@ -6,6 +6,7 @@ module.exports = {
 	category: "weather",
 	description: "Get the current alerts for Lincoln County, TN",
 	run: (client, message) => {
+		message.channel.send("Test");
 		if (message.channel.id === "690767163178483733") {
 			if (alerts.length != 0) {
 				for (let i = 0; i < alerts.length; i++) {
