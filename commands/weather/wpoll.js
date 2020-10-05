@@ -5,13 +5,6 @@ var outlook_string_1 = "";
 var outlook_string_2 = "";
 var outlook_string_3 = "";
 
-module.exports = {
-	alerts,
-	outlook_string_1,
-	outlook_string_2,
-	outlook_string_3,
-};
-
 function Alert(location, type, headline, description) {
 	this.location = location;
 	this.type = type;
@@ -152,6 +145,12 @@ module.exports = {
 				setInterval(function () {
 					getWarnings();
 					getOutlooks();
+					module.exports = {
+						alerts,
+						outlook_string_1,
+						outlook_string_2,
+						outlook_string_3,
+					};
 				}, 30 * 1000);
 				process.env.POLLING = "TRUE";
 				return message.channel
