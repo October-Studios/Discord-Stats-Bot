@@ -8,6 +8,7 @@ module.exports = {
 	run: (client, message) => {
 		message.channel.send("Test");
 		if (message.channel.id === "690767163178483733") {
+			message.channel.send(alerts.length);
 			if (alerts.length != 0) {
 				for (let i = 0; i < alerts.length; i++) {
 					if (alerts[i].type.includes("Flood")) {
