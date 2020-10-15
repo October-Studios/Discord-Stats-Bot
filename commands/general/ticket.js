@@ -13,7 +13,7 @@ module.exports = {
                     'Ticket received! Expect reply in 24 hours.'
                 );
                 message.awaitReactions(filter)
-                    .then(collected => {
+                    .then(c => {
                         message.delete();
                     });
             });
