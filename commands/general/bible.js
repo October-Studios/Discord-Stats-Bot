@@ -3,7 +3,7 @@ const options = {
 	hostname: "api.scripture.api.bible",
 	port: 443,
 	path: "/v1/bibles",
-	method: "POST",
+	method: "GET",
 	headers: {
 		"accept": "application/json",
 		"api-key": process.env.BIBLE
