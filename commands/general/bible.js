@@ -5,7 +5,8 @@ const options = {
 	path: "/v1/bibles/de4e12af7f28f599-01/books",
 	method: "POST",
 	headers: {
-		"api-key": process.env.BIBLE
+		"api-key": process.env.BIBLE,
+		"accept": "application/json"
 	}
 };
 
