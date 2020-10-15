@@ -10,10 +10,10 @@ const options = {
 };
 
 module.exports = {
-	name: "vote",
+	name: "bible",
 	category: "general",
-	description: "Creates a poll for the time alotted",
-	usage: "<time s|m> <question>",
+	description: "Test",
+	usage: "test",
 	run: async (client, message, args) => {
         const req = https.request(options, res => {
 			res.on('data', d => {
