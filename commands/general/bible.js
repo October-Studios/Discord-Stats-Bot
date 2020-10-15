@@ -2,7 +2,7 @@ const https = require('https');
 const options = {
 	hostname: "api.scripture.api.bible",
 	port: 443,
-	path: "/v1/bibles",
+	path: "/v1/bibles/de4e12af7f28f599-01/books",
 	method: "POST",
 	headers: {
 		"api-key": process.env.BIBLE
