@@ -7,7 +7,7 @@ module.exports = {
 	usage: "<time s|m> <question>",
 	run: async (client, message, args) => {
     if (!args.length){
-      message.channel.send('Please provide a time and a question!')
+      message.channel.send('Please provide a time and a question!');
     } else {
       let time = args[0];
       let question = args.slice(1).join(" ");
@@ -40,7 +40,7 @@ module.exports = {
                 return true;
               }
             }
-          }
+          };
           let msg = await message.channel.send(embed);
           await msg.react('👍');
           await msg.react('👎');
@@ -55,7 +55,7 @@ module.exports = {
           if(thumbsDown) {
             thumbsDownResults = thumbsDown.users.cache.filter(u => !u.bot).size;
           }
-          let description = `👍 - ${thumbsUpResults} votes\n👎 - ${thumbsDownResults} votes\n`
+          let description = `👍 - ${thumbsUpResults} votes\n👎 - ${thumbsDownResults} votes\n`;
           const resultsEmbed = new MessageEmbed()
             .setColor('#73D673')
             .setTitle('Results')
@@ -68,4 +68,4 @@ module.exports = {
       }
     }
 	}
-}
+};
