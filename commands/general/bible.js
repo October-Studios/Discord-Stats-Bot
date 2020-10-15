@@ -1,4 +1,13 @@
-const bb = process.env.BIBLE;
+const https = require('https');
+const options = {
+	hostname: "api.scripture.api.bible",
+	port: 443,
+	path: "/v1/bibles",
+	method: "POST",
+	headers: {
+		"api-key": process.env.BIBLE
+	}
+};
 
 module.exports = {
 	name: "vote",
@@ -6,6 +15,16 @@ module.exports = {
 	description: "Creates a poll for the time alotted",
 	usage: "<time s|m> <question>",
 	run: async (client, message, args) => {
-        // Stuff
+        const req = https.request(options, res => {
+			res.on('data', d => {
+				console.log(d);
+			});
+		});
+
+		req.on('error', error => {
+			console.error(error);
+		});
+
+		req.end();
     }
 };
