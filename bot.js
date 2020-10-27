@@ -9,7 +9,7 @@ let adapter = new FileSync('db.json');
 let db = low(adapter);
 
 const client = new Client({
-	disableMentions: 'everyone',
+	disableEveryone: true,
 });
 
 client.commands = new Collection();
