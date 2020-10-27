@@ -2,15 +2,14 @@ const { version, author, description, name } = require("../../package.json");
 const low = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 
-let adapter = new FileSync('db.json');
-let db = low(adapter);
-
 module.exports = {
 	name: "about",
 	aliases: ["a"],
 	category: "info",
 	description: "Provides information about me!",
 	run: async (client, message) => {
+		let adapter = new FileSync('db.json');
+		let db = low(adapter);
 		return message.channel.send(
 			"Bot name: " +
 				name + "(カーリー)" +
