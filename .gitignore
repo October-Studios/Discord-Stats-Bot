@@ -1,4 +1,3 @@
 auth*
 *.sqlite
-node_modules/jquery/package.json
-node_modules/jquery/README.md
+node_modules/
