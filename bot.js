@@ -13,7 +13,10 @@ const db = low(adapter);
 let cooldown = new Set();
 let cdSeconds = 60;
 
-module.exports = currency;
+module.exports = {
+	currency,
+	db
+};
 
 Reflect.defineProperty(currency, "add", {
 	value: async function add(id, amount) {
