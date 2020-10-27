@@ -12,7 +12,7 @@ module.exports = {
 			return message.channel.send("You must use an integer value!");
 		} else if (parseInt(args[0]) > Number.MAX_SAFE_INTEGER || parseInt(args[0]) < 1) {
 			return message.channel.send(
-				"Please use a value between 1 and 9007199254740991!)"
+				"Please use a value between 1 and 9007199254740991!"
 			);
 		} else {
 			return message.channel.send(Math.ceil(Math.random() * parseInt(args[0])));
