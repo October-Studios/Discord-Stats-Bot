@@ -5,10 +5,10 @@ const { Users } = require("./dbObjects");
 const currency = new Collection();
 const { token } = require("./auth.json");
 const low = require('lowdb');
-const FileAsync = require('lowdb/adapters/FileAsync');
+const FileSync = require('lowdb/adapters/FileSync');
 
-const adapter = new FileAsync('db.json');
-const db = low(adapter);
+let adapter = new FileSync('db.json');
+let db = low(adapter);
 
 let cooldown = new Set();
 let cdSeconds = 60;
