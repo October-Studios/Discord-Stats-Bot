@@ -1,3 +1,4 @@
 auth*
 *.sqlite
 node_modules/
+db.json
