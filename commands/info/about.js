@@ -1,6 +1,9 @@
 const { version, author, description, name } = require("../../package.json");
-require('lowdb');
-const db = require('../../bot.js');
+const low = require('lowdb');
+const FileAsync = require('lowdb/adapters/FileAsync');
+
+const adapter = new FileAsync('db.json');
+const db = low(adapter);
 
 module.exports = {
 	name: "about",
@@ -20,7 +23,7 @@ module.exports = {
 				"\nRelease notes v" +
 				version +
 				": Moved all bot commands to new format with command handler and modular structure" +
-				"\nTotal commands run: " + db.get('queried').value()
+				"\nTotal commands run: " + await db.get('queried').value()
 
 		);
 	},

@@ -5,18 +5,15 @@ const { Users } = require("./dbObjects");
 const currency = new Collection();
 const { token } = require("./auth.json");
 const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
+const FileAsync = require('lowdb/adapters/FileAsync');
 
-const adapter = new FileSync('db.json');
+const adapter = new FileAsync('db.json');
 const db = low(adapter);
 
 let cooldown = new Set();
 let cdSeconds = 60;
 
-module.exports = {
-	currency,
-	db
-};
+module.exports = currency;
 
 Reflect.defineProperty(currency, "add", {
 	value: async function add(id, amount) {
