@@ -29,7 +29,7 @@ module.exports = {
 					description +
 					"\nRelease notes v" +
 					version +
-					": Moved all bot commands to new format with command handler and modular structure" +
+					": Moved bot to NodeJS v15.0.1 and removed all shop commands due to dependence on out-of-date sqlite3 packages." +
 					"\nTotal commands run: " + db.get('queried').value()
 
 			);

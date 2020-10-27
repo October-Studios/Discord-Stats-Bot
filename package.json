@@ -1,6 +1,6 @@
 {
 	"name": "kali",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Performs miscellaneous functions and provides information about the server.",
 	"main": "bot.js",
 	"author": "Cameron Howell",
