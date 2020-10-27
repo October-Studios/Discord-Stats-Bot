@@ -1,4 +1,5 @@
 const { version, author, description, name } = require("../../package.json");
+require('lowdb');
 const db = require('../../bot.js');
 
 module.exports = {
