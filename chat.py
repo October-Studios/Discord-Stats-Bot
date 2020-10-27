@@ -1,11 +1,12 @@
-import spacy
-nlp = spacy.load('en_core_web_sm')
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
 
 
 def main():
-    doc = nlp(u'Tesla is looking at buying U.S. startup for $6 million')
-    for token in doc:
-        print(token.text, token.pos_, token.dep_)
+    chatbot = ChatBot('New Bot')
+    trainer = ChatterBotCorpusTrainer(chatbot)
+    trainer.train("chatterbot.corpus.english")
+    print(chatbot.get_response("Hello, how are you today?"))
 
 
 if __name__ == "__main__":
