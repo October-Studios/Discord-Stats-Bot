@@ -7,7 +7,7 @@ module.exports = {
 	run: async (client, message, args) => {
         axios.get('https://www.270towin.com/2020-election-results-live/')
         .then((response) => {
-            console.log(response);
+            console.log(response.data);
         })
         .catch((error) => {
             console.error(error);
