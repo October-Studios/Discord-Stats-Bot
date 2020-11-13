@@ -19,7 +19,7 @@ module.exports = {
                 );
                 const collector = message.createReactionCollector(filter);
                 collector.on('collect', r => {
-                    userMessage.user.send("Your ticket has been resolved!");
+                    userMessage.author.send("Your ticket has been resolved!");
                     message.delete();
                 });
             });
