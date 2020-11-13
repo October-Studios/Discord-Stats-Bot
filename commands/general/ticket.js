@@ -20,7 +20,7 @@ module.exports = {
                 );
                 const collector = message.createReactionCollector(filter);
                 collector.on('collect', r => {
-                    if (r === '❌') {
+                    if (r.content === '❌') {
                         message.author.send("Your suggestion has been rejected. If you would like to appeal, PM the owner.");
                     } else {
                         userMessage.author.send("Your ticket has been resolved!");
