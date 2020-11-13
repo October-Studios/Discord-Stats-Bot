@@ -11,7 +11,7 @@ module.exports = {
                 return true;
             }
         };
-        client.channels.cache.get('751922155217748030').send(`Ticket created by ${message.author}:\n\n${args.join(' ')}\n\nClick the ✅ icon when this issue has been resolved.`)
+        client.channels.cache.get('776496572623224882').send(`Ticket created by ${message.author}:\n\n${args.join(' ')}\n\nClick the ✅ icon when this issue has been resolved.`)
             .then(message => {
                 message.react('✅');
                 userMessage.reply(
