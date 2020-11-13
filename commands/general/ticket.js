@@ -21,7 +21,7 @@ module.exports = {
                 const collector = message.createReactionCollector(filter);
                 collector.on('collect', r => {
                     if (r.emoji.name === '❌') {
-                        message.author.send("Your suggestion has been rejected. If you would like to appeal, PM the owner.");
+                        userMessage.author.send("Your suggestion has been rejected. If you would like to appeal, PM the owner.");
                     } else {
                         userMessage.author.send("Your ticket has been resolved!");
                     }
