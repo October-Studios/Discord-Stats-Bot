@@ -15,10 +15,13 @@ module.exports = {
             .then(message => {
                 message.react('✅');
                 userMessage.reply(
-                    'Ticket received! Expect reply in 24 hours.'
+                    'ticket received! Expect reply in 24 hours.'
                 );
                 const collector = message.createReactionCollector(filter);
-                collector.on('collect', r => message.delete());
+                collector.on('collect', r => {
+                    userMessage.user.send("Your ticket has been resolved!");
+                    message.delete();
+                });
             });
 
     }
