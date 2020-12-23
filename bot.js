@@ -28,8 +28,8 @@ client.on("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({
 		activity: {
-			name: "with my pp",
-			type: "PLAYING",
+			name: "porn",
+			type: "STREAMING",
 		},
 		status: "online",
 	});

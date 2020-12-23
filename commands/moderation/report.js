@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, message, args) => {
         const member = getMember(message, args.join(" "));
         let reason = "";
-        for (let i = 1; i < args.size(); i++) {
+        for (let i = 1; i < args.length; i++) {
             reason += `${args[i]} `;
         }
         if (!args[0] || !args[1]) {
