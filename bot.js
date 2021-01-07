@@ -28,8 +28,8 @@ client.on("ready", async () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 	client.user.setPresence({
 		activity: {
-			name: "porn",
-			type: "STREAMING",
+			name: "Minecraft on 50.81.219.52:25565",
+			type: "PLAYING",
 		},
 		status: "online",
 	});
