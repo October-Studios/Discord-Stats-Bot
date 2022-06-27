@@ -27,7 +27,7 @@
 		"realmviewer": "^1.2.0",
 		"request": "^2.88.2",
 		"sequelize": "^5.22.3",
-		"shelljs": "^0.8.4",
+		"shelljs": "^0.8.5",
 		"taffydb": "^2.7.3",
 		"winston": "^3.3.3"
 	},
