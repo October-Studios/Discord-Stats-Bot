@@ -13,7 +13,7 @@
 		"common-tags": "^1.8.0",
 		"discord.js": "^12.4.1",
 		"dotenv": "^8.2.0",
-		"espn-fantasy-football-api": "^0.15.0",
+		"espn-fantasy-football-api": "^0.16.1",
 		"express": "^4.17.3",
 		"fortnite": "^4.3.2",
 		"fs": "0.0.1-security",
