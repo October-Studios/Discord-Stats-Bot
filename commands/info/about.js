@@ -1,6 +1,4 @@
 const { version, author, description, name } = require("../../package.json");
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
 
 module.exports = {
 	name: "about",
@@ -20,7 +18,7 @@ module.exports = {
 		} else if (!args[0]) {
 			return message.channel.send(
 				"Bot name: " +
-					name + "(カーリー)" +
+					name + "(django)" +
 					"\nRelease Version: v" +
 					version +
 					"\nCreator: " +

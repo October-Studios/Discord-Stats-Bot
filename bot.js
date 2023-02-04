@@ -1,24 +1,14 @@
-const { Client, Collection } = require("discord.js");
-const { config } = require("dotenv");
+const { Client, GatewayIntentBits, Collection } = require("discord.js");
+require("dotenv").config()
 const fs = require("fs");
-const { token } = require("./auth.json");
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-
-let adapter = new FileSync('db.json');
-let db = low(adapter);
 
 const client = new Client({
-	disableEveryone: true,
+  intents: [GatewayIntentBits.Guilds]
 });
 
 client.commands = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
-
-config({
-	path: __dirname + "/.env",
-});
 
 ["command"].forEach((handler) => {
 	require(`./handler/${handler}`)(client);
@@ -35,22 +25,27 @@ client.on("ready", async () => {
 	});
 });
 
-client.on("message", async (message) => {
-	const prefix = "//";
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-	const args = message.content.slice(prefix.length).split(" ");
-	const command = args.shift().toLowerCase();
-	if (command.length === 0) return;
-	let cmd = client.commands.get(command);
-	if (!cmd) cmd = client.commands.get(client.aliases.get(command));
+client.on("interactionCreate", async interaction => {
+	//const prefix = "//";
+	//if (message.author.bot) return;
+	//if (!message.content.startsWith(prefix)) return;
+	//const args = message.content.slice(prefix.length).split(" ");
+	//const command = args.shift().toLowerCase();
+	//if (command.length === 0) return;
+	//let cmd = client.commands.get(command);
+	//if (!cmd) cmd = client.commands.get(client.aliases.get(command));
 
-	if (cmd) {
-		cmd.run(client, message, args);
-		let total = db.get('queried').value();
-		total++;
-		db.set('queried', total).write();
-	}
+	//if (cmd) {
+	//	cmd.run(client, message, args);
+	//	let total = db.get('queried').value();
+	//	total++;
+	//	db.set('queried', total).write();
+	//}
+  if (!interaction.isChatInputCommand()) return;
+
+  if (interaction.commandName === 'ping') {
+    await interaction.reply('Pong!');
+  }
 });
 
-client.login(token);
+client.login(process.env.TOKEN);
