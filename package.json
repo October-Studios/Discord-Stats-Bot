@@ -27,7 +27,7 @@
 		"python-shell": "^3.0.1",
 		"realmviewer": "^1.2.0",
 		"request": "^2.88.2",
-		"sequelize": "^6.28.0",
+		"sequelize": "^6.29.0",
 		"shelljs": "^0.8.5",
 		"taffydb": "^2.7.3",
 		"winston": "^3.8.2"
