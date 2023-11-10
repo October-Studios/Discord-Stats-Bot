@@ -6,7 +6,7 @@
 	"author": "Cameron Howell",
 	"dependencies": {
 		"ascii-table": "0.0.9",
-		"axios": "^1.2.3",
+		"axios": "^1.6.0",
 		"beautify": "0.0.8",
 		"bl": "^6.0.0",
 		"cheerio": "git+https://github.com/MatthewMueller/cheerio.git",
